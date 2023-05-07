@@ -6,17 +6,10 @@ A windows task manager clone for Linux.
 
 
 # Installation
-On Arch based distros (AUR):
+On openSUSE 15.4 LEAP based distros:
 ```
-$ yay -S wsysmon-git
-```
-
-On openSUSE from [Vortex Acherontic´s Repo](https://build.opensuse.org/project/show/home:VortexAcherontic):
-```
-$ sudo zypper addrepo https://download.opensuse.org/repositories/home:VortexAcherontic/openSUSE_Tumbleweed/home:VortexAcherontic.repo
-$ sudo zypper ref
-$ sudo zypper in wsysmon
-```
+# Dependences
+sudo zypper in cmake gcc12-c++ libstdc++6-devel-gcc12 spdlog-devel gtkmm3-devel procps-devel update-desktop-files hicolor-icon-theme filesystem
 
 # Building
 The following dependencies are required:
@@ -24,9 +17,11 @@ The following dependencies are required:
 * `libsystemd`
 
 ```
-cmake -B ./build -DCMAKE_BUILD_TYPE=Release
+cmake -B ./build -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=gcc-12 -DCMAKE_CXX_COMPILER=g++-12
 cmake --build ./build --config Release
 ```
+# RUN
+./build/WSysMon
 
 # Limitations
 * Only NVIDIA GPUs using the proprietary driver are detected
